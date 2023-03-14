@@ -10,12 +10,22 @@ namespace DrivingSimQuestionmark
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("|        |        |        |");
-            Console.WriteLine("|                          |");
-            Console.WriteLine("|                          |");
-            Console.WriteLine("|        |        |        |");
-            Console.WriteLine("|                          |");
-            Console.WriteLine("|                          |");
+            Console.SetWindowSize(30, 40);
+
+            Console.WriteLine("||        |        |        ||");
+            Console.WriteLine("||                          ||");
+            Console.WriteLine("||                          ||");
+            Console.WriteLine("||        |        |        ||");
+            Console.WriteLine("||                          ||");
+            Console.WriteLine("||                          ||");
+            
+            
+            /*
+            [¨¨¨¨]
+            |\__/|
+            ||__||
+            [____]
+            */
 
 
             Console.ReadLine();
