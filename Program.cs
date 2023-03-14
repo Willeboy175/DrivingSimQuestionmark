@@ -10,6 +10,7 @@ namespace DrivingSimQuestionmark
     {
         static void Main(string[] args)
         {
+            /*
             Console.SetWindowSize(30, 40);
 
             Console.WriteLine("||        |        |        ||");
@@ -18,15 +19,32 @@ namespace DrivingSimQuestionmark
             Console.WriteLine("||        |        |        ||");
             Console.WriteLine("||                          ||");
             Console.WriteLine("||                          ||");
-            
-            
-            /*
+
+
             [¨¨¨¨]
-            |\__/|
+            |╲__╱|
             ||__||
             [____]
             */
 
+
+            int width = 16;
+            int height = 16;
+            int what = 5;
+
+            Console.SetWindowSize(width, height);
+            /*
+            Console.WriteLine("■ ■ ■ ■");
+            Console.WriteLine("■ ■ ■ ■");
+            Console.WriteLine("■ ■ ■ ■");
+            */
+            for (int i = 0; i < what; i++)
+            {
+                Console.SetCursorPosition(i, 0);
+                Console.Write("a");
+
+                Console.ReadLine();
+            }
 
             Console.ReadLine();
         }
