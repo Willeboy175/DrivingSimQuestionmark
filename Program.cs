@@ -11,7 +11,7 @@ namespace DrivingSimQuestionmark
         protected static int origRow;
         protected static int origCol;
 
-        protected static void WriteAt(string s, int x, int y)
+        public static void WriteAt(string s, int x, int y)
         {
             try
             {
@@ -36,16 +36,8 @@ namespace DrivingSimQuestionmark
             WriteAt("||        |        |        ||", 0, 2);
             WriteAt("||                          ||", 0, 3);
 
-            WriteAt("[¨¨¨¨]", 3, 0);
-            WriteAt("|›__‹|", 3, 1);
-            WriteAt("||__||", 3, 2);
-            WriteAt("[____]", 3, 3);
+            Car player = new Car(1, 0);
 
-            /*
-            [¨¨¨¨]
-            |╲__╱|
-            ||__||
-            [____]
             
             int width = 16;
             int height = 16;
@@ -64,7 +56,7 @@ namespace DrivingSimQuestionmark
 
                 Console.ReadLine();
             }
-            */
+            
             Console.ReadLine();
         }
     }
