@@ -32,7 +32,7 @@ namespace DrivingSimQuestionmark
             origCol = Console.CursorLeft;
 
             int width = 30;
-            int height = 32;
+            int height = 36;
 
             Console.SetWindowSize(width, height);
 
@@ -49,9 +49,13 @@ namespace DrivingSimQuestionmark
 
             Car player = new Car(1, 0);
 
-            Obstacle temp = new Obstacle(1, 11);
-            Obstacle temp2 = new Obstacle(2, 11);
-            Obstacle temp3 = new Obstacle(3, 11);
+            Obstacle temp = new Obstacle(1, 4);
+            Obstacle temp2 = new Obstacle(1, 8);
+            Obstacle temp3 = new Obstacle(1, 12);
+            Obstacle temp4 = new Obstacle(1, 16);
+            Obstacle temp5 = new Obstacle(1, 20);
+            Obstacle temp6 = new Obstacle(1, 24);
+            Obstacle temp7 = new Obstacle(1, 28);
 
             /*
             int width = 16;
