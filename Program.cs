@@ -49,7 +49,7 @@ namespace DrivingSimQuestionmark
             WriteAt("    --Press A to move left--    ", 0, 2);
             WriteAt("    --Press D to move right--   ", 0, 3);
             WriteAt("  ============================  ", 0, 4);
-            WriteAt("                                 ", 0, 5);
+            WriteAt("                                ", 0, 5);
             WriteAt("                                ", 0, 6);
             WriteAt("  ============================  ", 0, 7);
             WriteAt("    --To start, press ENTER--   ", 0, 8);
