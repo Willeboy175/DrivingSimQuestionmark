@@ -18,9 +18,9 @@ namespace DrivingSimQuestionmark
             {
                 for (int i = 0; i < height; i += 3)
                 {
-                    Program.WriteAt("||        |        |        ||", 0, i);
-                    Program.WriteAt("||                          ||", 0, i + 1);
-                    Program.WriteAt("||                          ||", 0, i + 2);
+                    Program.WriteAt("|||        |        |        |||", 0, i);
+                    Program.WriteAt("||                            ||", 0, i + 1);
+                    Program.WriteAt("||                            ||", 0, i + 2);
                 }
             }
 
@@ -28,9 +28,9 @@ namespace DrivingSimQuestionmark
             {
                 for (int i = 0; i < height; i += 3)
                 {
-                    Program.WriteAt("||                          ||", 0, i);
-                    Program.WriteAt("||        |        |        ||", 0, i + 1);
-                    Program.WriteAt("||                          ||", 0, i + 2);
+                    Program.WriteAt("||                            ||", 0, i);
+                    Program.WriteAt("|||        |        |        |||", 0, i + 1);
+                    Program.WriteAt("||                            ||", 0, i + 2);
                 }
             }
 
@@ -38,9 +38,9 @@ namespace DrivingSimQuestionmark
             {
                 for (int i = 0; i < height; i += 3)
                 {
-                    Program.WriteAt("||                          ||", 0, i);
-                    Program.WriteAt("||                          ||", 0, i + 1);
-                    Program.WriteAt("||        |        |        ||", 0, i + 2);
+                    Program.WriteAt("||                            ||", 0, i);
+                    Program.WriteAt("||                            ||", 0, i + 1);
+                    Program.WriteAt("|||        |        |        |||", 0, i + 2);
                 }
             }
         }

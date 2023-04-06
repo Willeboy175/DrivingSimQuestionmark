@@ -27,27 +27,52 @@ namespace DrivingSimQuestionmark
 
         static void Main(string[] args)
         {
-            int width = 30;
+            int width = 32;
             int height = 45;
             bool gameOver = false;
-            int road = 2;
+            
+            int road = 1;
+            
             int playerX = 2;
             int playerY = 9;
 
+            Obstacle[] obstacles;
+            int[] obstaclesX;
+            int[] obstaclesY;
+            
             Console.Clear();
             origRow = Console.CursorTop;
             origCol = Console.CursorLeft;
             Console.SetWindowSize(width, height);
 
+            WriteAt("  ============================  ", 0, 1);
+            WriteAt("    --Press A to move left--    ", 0, 2);
+            WriteAt("    --Press D to move right--   ", 0, 3);
+            WriteAt("  ============================  ", 0, 4);
+            WriteAt("                                 ", 0, 5);
+            WriteAt("                                ", 0, 6);
+            WriteAt("  ============================  ", 0, 7);
+            WriteAt("    --To start, press ENTER--   ", 0, 8);
+            WriteAt("  ============================  ", 0, 9);
+            Console.ReadLine();
+
             while (gameOver == false)
             {
-                Road background = new Road(road, height);
+                for (int i = 0; i < 4; i++)
+                {
+                    if (road > 3)
+                    {
+                        road = 1;
+                    }
+                    Road background = new Road(road, height);
+                    road += 1;
 
-                Car player = new Car(playerX, playerY);
+                    Car player = new Car(playerX, playerY);
 
-                Obstacle[] temp = { new Obstacle(1, 4), new Obstacle(1, 8), new Obstacle(1, 12), new Obstacle(1, 16), new Obstacle(1, 20), new Obstacle(1, 24), new Obstacle(1, 28) };
+                    Thread.Sleep(400);
+                }
                 
-                Console.ReadLine();
+                Console.ReadKey();
             }
         }
     }

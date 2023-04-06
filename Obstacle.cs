@@ -15,15 +15,15 @@ namespace DrivingSimQuestionmark
         {
             if (x == 1)
             {
-                posX = 2;
+                posX = 3;
             }
             if (x == 2)
             {
-                posX = 11;
+                posX = 12;
             }
             if (x == 3)
             {
-                posX = 20;
+                posX = 21;
             }
 
             posY = y;
