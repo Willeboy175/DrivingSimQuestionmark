@@ -30,16 +30,12 @@ namespace DrivingSimQuestionmark
             int width = 32;
             int height = 45;
             bool gameOver = false;
-            
             int road = 1;
-            
             int playerX = 2;
             int playerY = 9;
-
-            Obstacle[] obstacles;
             int[] obstaclesX;
             int[] obstaclesY;
-            
+
             Console.Clear();
             origRow = Console.CursorTop;
             origCol = Console.CursorLeft;
@@ -60,19 +56,21 @@ namespace DrivingSimQuestionmark
             {
                 for (int i = 0; i < 4; i++)
                 {
+                    Road background = new Road(road, height);
+                    road += 1;
+
                     if (road > 3)
                     {
                         road = 1;
                     }
-                    Road background = new Road(road, height);
-                    road += 1;
 
                     Car player = new Car(playerX, playerY);
 
-                    Thread.Sleep(400);
+                    Thread.Sleep(300);
                 }
                 
-                Console.ReadKey();
+                playerX = int.Parse(Console.ReadLine());
+                //Console.ReadKey();
             }
         }
     }

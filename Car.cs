@@ -17,13 +17,17 @@ namespace DrivingSimQuestionmark
             {
                 posX = 4;
             }
-            if (x == 2)
+            else if (x == 2)
             {
                 posX = 13;
             }
-            if (x == 3)
+            else if (x == 3)
             {
-                posX = 20;
+                posX = 22;
+            }
+            else
+            {
+                posX = 13;
             }
 
             posY = y * 4;
