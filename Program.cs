@@ -35,6 +35,8 @@ namespace DrivingSimQuestionmark
             int playerY = 9;
             int[] obstaclesX;
             int[] obstaclesY;
+            Obstacle[] obstacles;
+            ConsoleKeyInfo playerInput;
 
             Console.Clear();
             origRow = Console.CursorTop;
@@ -44,12 +46,13 @@ namespace DrivingSimQuestionmark
             WriteAt("  ============================  ", 0, 1);
             WriteAt("    --Press A to move left--    ", 0, 2);
             WriteAt("    --Press D to move right--   ", 0, 3);
-            WriteAt("  ============================  ", 0, 4);
-            WriteAt("                                ", 0, 5);
+            WriteAt("   --Press W to move nothing--  ", 0, 4);
+            WriteAt("  ============================  ", 0, 5);
             WriteAt("                                ", 0, 6);
-            WriteAt("  ============================  ", 0, 7);
-            WriteAt("    --To start, press ENTER--   ", 0, 8);
-            WriteAt("  ============================  ", 0, 9);
+            WriteAt("                                ", 0, 7);
+            WriteAt("  ============================  ", 0, 8);
+            WriteAt("    --To start, press ENTER--   ", 0, 9);
+            WriteAt("  ============================  ", 0, 10);
             Console.ReadLine();
 
             while (gameOver == false)
@@ -66,10 +69,30 @@ namespace DrivingSimQuestionmark
 
                     Car player = new Car(playerX, playerY);
 
-                    Thread.Sleep(300);
+                    Thread.Sleep(100);
                 }
-                
-                playerX = int.Parse(Console.ReadLine());
+
+                playerInput = Console.ReadKey(true);
+
+                if (playerInput.Key == ConsoleKey.A)
+                {
+                    playerX -= 1;
+                    if (playerX < 1)
+                    {
+                        playerX = 1;
+                    }
+                }
+
+                if (playerInput.Key == ConsoleKey.D)
+                {
+                    playerX += 1;
+                    if (playerX > 3)
+                    {
+                        playerX = 3;
+                    }
+                }
+
+                //playerX = int.Parse(Console.ReadLine());
                 //Console.ReadKey();
             }
         }
