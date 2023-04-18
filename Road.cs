@@ -10,11 +10,11 @@ namespace DrivingSimQuestionmark
     {
         int height;
 
-        public Road(int x, int y)
+        public Road(int cycle, int y)
         {
             height = y;
 
-            if (x == 1)
+            if (cycle == 1)
             {
                 for (int i = 0; i < height; i += 3)
                 {
@@ -24,7 +24,7 @@ namespace DrivingSimQuestionmark
                 }
             }
 
-            if (x == 2)
+            if (cycle == 2)
             {
                 for (int i = 0; i < height; i += 3)
                 {
@@ -34,7 +34,7 @@ namespace DrivingSimQuestionmark
                 }
             }
 
-            if (x == 3)
+            if (cycle == 3)
             {
                 for (int i = 0; i < height; i += 3)
                 {

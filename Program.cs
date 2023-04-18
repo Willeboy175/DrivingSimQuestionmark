@@ -8,18 +8,23 @@ namespace DrivingSimQuestionmark
 {
     internal class Program
     {
+        //Offset för WriteAt funktionen till övre vänstra hörnet i konsollen
         protected static int origRow;
         protected static int origCol;
 
         public static void WriteAt(string s, int x, int y)
         {
-            try
+            try //Försöker skriva på vald position
             {
+                //Sätter pekarens position i x- och y-led beroende på funktionens offset
+                //Skriver på pekarens position
                 Console.SetCursorPosition(origCol + x, origRow + y);
                 Console.Write(s);
             }
-            catch (ArgumentOutOfRangeException e)
+            catch (ArgumentOutOfRangeException e) //Skapar ett felmeddelande ifall tidigare funktion misslyckas
             {
+                //Rensar konsollen
+                //Visar felmeddelandet
                 Console.Clear();
                 Console.WriteLine(e.Message);
             }
@@ -28,27 +33,40 @@ namespace DrivingSimQuestionmark
         static void Main(string[] args)
         {
         Start:
+            //Bredden på konsollen i kolumner
+            //Höjden på konsollen i rader
+            //Statement ifall spelet är över
+            //Vilken cykel animationen för vägen är på
             int width = 32;
             int height = 45;
             bool gameOver = false;
             int road = 1;
             Random rnd = new Random();
 
+            //Spelarens position i tilesystemet
+            //Variabel för spelarens inputs
             int playerX = 2;
             int playerY = 9;
             ConsoleKeyInfo playerInput;
 
+            //Bestämmer vilken variabel i obstacles, obstaclesX och obstaclesY som används för att spawna en ett nytt hinder
+            //En variabel så att ett hinder bara spawnas varannan cykel
+            //Array för hindernas position i x-led i tilesystemet
+            //Array för hindernas position i y-led i rader
             int devi = 0;
             int cycle = 0;
             int[] obstaclesX = { 2, 2, 2, 2, 2, 2 };
             int[] obstaclesY = { 45, 45, 45, 45, 45, 45 };
-            
 
-            Console.Clear();
+            //Sätter offset för raderna i funktionen WriteAt
+            //Sätter offset för kolumnerna i funktionen WriteAt
+            //Sätter storleken för console fönstret
             origRow = Console.CursorTop;
             origCol = Console.CursorLeft;
             Console.SetWindowSize(width, height);
 
+
+            Console.Clear();
             WriteAt("  ============================  ", 0, 1);
             WriteAt("    --Press A to move left--    ", 0, 2);
             WriteAt("    --Press D to move right--   ", 0, 3);
