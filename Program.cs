@@ -97,13 +97,11 @@ namespace DrivingSimQuestionmark
                     {
                         road = 1;
                     }
-
-                    obstaclesY[0] += 1; //Flyttar hinderna ner en rad
-                    obstaclesY[1] += 1;
-                    obstaclesY[2] += 1;
-                    obstaclesY[3] += 1;
-                    obstaclesY[4] += 1;
-                    obstaclesY[5] += 1;
+                    
+                    for (int a = 0; a < 5; a++) //Flyttar hinderna ner en rad
+                    {
+                        obstaclesY[a] += 1;
+                    }
 
                     //Skriver ut alla hinder
                     Obstacle[] obstacles = { new Obstacle(obstaclesX[0], obstaclesY[0]), new Obstacle(obstaclesX[1], obstaclesY[1]),
@@ -118,30 +116,12 @@ namespace DrivingSimQuestionmark
                 }
 
 
-                //Kollar ifall något av hinderna är på samma plats som spelaren 
-                if (obstaclesX[0] == playerX && obstaclesY[0] == 36)
+                for (int i = 0; i < 5; i++) //Kollar ifall något av hinderna är på samma plats som spelaren
                 {
-                    gameOver = true;
-                }
-                if (obstaclesX[1] == playerX && obstaclesY[1] == 36)
-                {
-                    gameOver = true;
-                }
-                if (obstaclesX[2] == playerX && obstaclesY[2] == 36)
-                {
-                    gameOver = true;
-                }
-                if (obstaclesX[3] == playerX && obstaclesY[3] == 36)
-                {
-                    gameOver = true;
-                }
-                if (obstaclesX[4] == playerX && obstaclesY[4] == 36)
-                {
-                    gameOver = true;
-                }
-                if (obstaclesX[5] == playerX && obstaclesY[5] == 36)
-                {
-                    gameOver = true;
+                    if (obstaclesX[i] == playerX && obstaclesY[i] == 36)
+                    {
+                        gameOver = true;
+                    }
                 }
 
 
