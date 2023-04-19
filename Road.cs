@@ -8,13 +8,13 @@ namespace DrivingSimQuestionmark
 {
     class Road
     {
-        int height;
+        int height; //Hur många rader gånger 3 vägen är
 
-        public Road(int cycle, int y)
+        public Road(int cycle, int y) //Funktion som skriver ut vägen
         {
             height = y;
 
-            if (cycle == 1)
+            if (cycle == 1) //Första "framen"
             {
                 for (int i = 0; i < height; i += 3)
                 {
@@ -24,7 +24,7 @@ namespace DrivingSimQuestionmark
                 }
             }
 
-            if (cycle == 2)
+            if (cycle == 2) //Andra "framen"
             {
                 for (int i = 0; i < height; i += 3)
                 {
@@ -34,7 +34,7 @@ namespace DrivingSimQuestionmark
                 }
             }
 
-            if (cycle == 3)
+            if (cycle == 3) //Tredje "framen"
             {
                 for (int i = 0; i < height; i += 3)
                 {

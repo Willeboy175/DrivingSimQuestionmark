@@ -8,12 +8,12 @@ namespace DrivingSimQuestionmark
 {
     internal class Car
     {
-        int posX;
+        int posX; //Vilken position bilen har i tiles
         int posY;
 
-        public Car(int x, int y)
+        public Car(int x, int y) //Funktion som skriver ut en bil
         {
-            if (x == 1)
+            if (x == 1) //Omvandlar position i tiles till position i kolumner
             {
                 posX = 4;
             }
@@ -25,14 +25,14 @@ namespace DrivingSimQuestionmark
             {
                 posX = 22;
             }
-            else
+            else //Ifall 'x' är något annat än 1,2 eller 3 skrivs bilen ut i mitten
             {
                 posX = 13;
             }
 
-            posY = y * 4;
+            posY = y * 4; //Omvandlar position i tiles till position i rader
 
-            Program.WriteAt("[¨¨¨¨]", posX, posY);
+            Program.WriteAt("[¨¨¨¨]", posX, posY); //Skriver ut bilen
             Program.WriteAt("|›__‹|", posX, posY + 1);
             Program.WriteAt("||__||", posX, posY + 2);
             Program.WriteAt("[____]", posX, posY + 3);
