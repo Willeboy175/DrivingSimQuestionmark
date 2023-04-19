@@ -142,6 +142,7 @@ namespace DrivingSimQuestionmark
                 }
                 else if (playerInput.Key == ConsoleKey.Escape) //Går till 'Start:' som återställer spelet och tar spelaren till huvudmenyn
                 {
+                    Console.Clear();
                     goto Start;
                 }
                 else //Går till 'Input:' som ser till att alla andra knappar på tangentbordet inte fortsätter spelet

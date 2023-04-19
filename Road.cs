@@ -24,7 +24,7 @@ namespace DrivingSimQuestionmark
                 }
             }
 
-            if (cycle == 2) //Andra "framen"
+            else if (cycle == 2) //Andra "framen"
             {
                 for (int i = 0; i < height; i += 3)
                 {
@@ -34,7 +34,7 @@ namespace DrivingSimQuestionmark
                 }
             }
 
-            if (cycle == 3) //Tredje "framen"
+            else if (cycle == 3) //Tredje "framen"
             {
                 for (int i = 0; i < height; i += 3)
                 {

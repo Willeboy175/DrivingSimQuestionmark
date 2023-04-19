@@ -29,23 +29,23 @@ namespace DrivingSimQuestionmark
             {
                 Obstacle obstacle = new Obstacle(1, posY);
             }
-            if (prefab == 2)
+            else if (prefab == 2)
             {
                 Obstacle obstacle = new Obstacle(2, posY);
             }
-            if (prefab == 3)
+            else if (prefab == 3)
             {
                 Obstacle obstacle = new Obstacle(3, posY);
             }
-            if (prefab == 4)
+            else if (prefab == 4)
             {
                 Obstacle[] obstacles = { new Obstacle(1, posY), new Obstacle(2, posY) };
             }
-            if (prefab == 5)
+            else if (prefab == 5)
             {
                 Obstacle[] obstacles = { new Obstacle(2, posY), new Obstacle(3, posY) };
             }
-            if (prefab == 6)
+            else if (prefab == 6)
             {
                 Obstacle[] obstacles = { new Obstacle(1, posY), new Obstacle(3, posY) };
             }
