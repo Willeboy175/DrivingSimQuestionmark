@@ -48,7 +48,7 @@ namespace DrivingSimQuestionmark
 
             origRow = Console.CursorTop; //Sätter offset för funktionen WriteAt
             origCol = Console.CursorLeft;
-            Console.SetWindowSize(width, height); 
+            Console.SetWindowSize(width, height);
 
 
             Console.Clear();
