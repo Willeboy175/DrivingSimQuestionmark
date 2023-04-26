@@ -36,6 +36,7 @@ namespace DrivingSimQuestionmark
             bool gameOver = false;
             int road = 1; //Vilken "frame" animationen för vägen är på, kan vara 1,2 eller 3
             int Version;
+            int score = -1;
             Random rnd = new Random();
 
             int playerX = 2; //Spelarens position i tiles
@@ -133,7 +134,7 @@ namespace DrivingSimQuestionmark
                         obstaclesY[devi] = 0;
                     }
                 }
-
+                score += 1;//Lägger till '+1' för varje cykel
 
                 for (int i = 0; i < 4; i++) //Animation för väg och hinder och skriver ut spelaren
                 {
@@ -174,24 +175,28 @@ namespace DrivingSimQuestionmark
 
                         for (int n = 0; n < 5; n++) //Kollar ifall något av hinderna är på samma plats som spelaren
                         {
-                            if (obstacleSpawners[n].prefab == playerX && obstaclesY[n] == 36)
+                            if (obstacleSpawners[n].prefab == playerX && obstaclesY[n] == 36) //Kollar för prefab 1-3
                             {
                                 gameOver = true;
                             }
-                            if (obstacleSpawners[n].prefab == 4 && (playerX == 1 || playerX == 2) && obstaclesY[n] == 36)
+                            if (obstacleSpawners[n].prefab == 4 && (playerX == 1 || playerX == 2) && obstaclesY[n] == 36) //Kollar för prefab 4
                             {
                                 gameOver = true;
                             }
-                            if (obstacleSpawners[n].prefab == 5 && (playerX == 2 || playerX == 3) && obstaclesY[n] == 36)
+                            if (obstacleSpawners[n].prefab == 5 && (playerX == 2 || playerX == 3) && obstaclesY[n] == 36) //Kollar för prefab 5
                             {
                                 gameOver = true;
                             }
-                            if (obstacleSpawners[n].prefab == 6 && (playerX == 1 || playerX == 3) && obstaclesY[n] == 36)
+                            if (obstacleSpawners[n].prefab == 6 && (playerX == 1 || playerX == 3) && obstaclesY[n] == 36) //Kollar för prefab 6
                             {
                                 gameOver = true;
                             }
                         }
                     }
+
+                    WriteAt("================================", 0, 42); //Skriver Score på botten av skärmen
+                    WriteAt("       --Score: " + score+ "--             ", 0, 43);
+                    WriteAt("================================", 0, 44);
 
                     WriteAt("|", 0, 0); //Skriver en sak högst upp i konsollen så att rätt saker alltid visas
                     
@@ -199,8 +204,9 @@ namespace DrivingSimQuestionmark
 
                     Thread.Sleep(100);
                 }
+                
 
-                if (gameOver == false)
+                if (gameOver == false) //Skippar ifall spelet är slut
                 {
                 Input:
                     playerInput = Console.ReadKey(true); //Läser spelarens input
@@ -232,10 +238,15 @@ namespace DrivingSimQuestionmark
             
         End:
             Console.Clear();
-            WriteAt("  ============================  ", 0, 1); //Game over meny som också är slutet på spelet
+            WriteAt("================================", 0, 1); //Game over meny som också är slutet på spelet
             WriteAt("         --GAME OVER--          ", 0, 2);
-            WriteAt("   --Press ENTER to continue--  ", 0, 3);
-            WriteAt("  ============================  ", 0, 4);
+            WriteAt("    --Your score is: " +score + "--        ", 0, 3);
+            WriteAt("================================", 0, 4);
+            WriteAt("                                ", 0, 5);
+            WriteAt("                                ", 0, 6);
+            WriteAt("================================", 0, 7);
+            WriteAt("   --Press ENTER to continue--  ", 0, 8);
+            WriteAt("================================", 0, 9);
             playerInput = Console.ReadKey(true); //Läser spelarens input
 
             if (playerInput.Key != ConsoleKey.Enter) //Avslutar spelet bara ifall spelaren trycker på Enter
