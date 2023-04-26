@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -34,6 +35,7 @@ namespace DrivingSimQuestionmark
             int height = 45;
             bool gameOver = false;
             int road = 1; //Vilken "frame" animationen för vägen är på, kan vara 1,2 eller 3
+            int Version;
             Random rnd = new Random();
 
             int playerX = 2; //Spelarens position i tiles
@@ -52,39 +54,84 @@ namespace DrivingSimQuestionmark
 
 
             Console.Clear();
-            WriteAt("  ============================  ", 0, 1); //Huvudmeny
+            WriteAt("================================", 0, 1); //Huvudmeny
             WriteAt("    --Press A to move left--    ", 0, 2);
             WriteAt("    --Press D to move right--   ", 0, 3);
             WriteAt("   --Press W to move nothing--  ", 0, 4);
             WriteAt("   --Press ESC to main menu--   ", 0, 5);
-            WriteAt("  ============================  ", 0, 6);
+            WriteAt("================================", 0, 6);
             WriteAt("                                ", 0, 7);
             WriteAt("                                ", 0, 8);
-            WriteAt("  ============================  ", 0, 9);
-            WriteAt("    --To start, press ENTER--   ", 0, 10);
-            WriteAt("  ============================  ", 0, 11);
-            Console.ReadLine();
+            WriteAt("================================", 0, 9);
+            WriteAt("--Write 1 to select version 1-- ", 0, 10);
+            WriteAt("--Write 2 to select Version 2-- ", 0, 11);
+            WriteAt("================================", 0, 12);
+            WriteAt("                                ", 0, 13);
+            WriteAt("                                ", 0, 14);
+            WriteAt("================================", 0, 15);
+            WriteAt("    --To start, press ENTER--   ", 0, 16);
+            WriteAt("================================", 0, 17);
+            WriteAt("                                ", 0, 18);
+            WriteAt("                                ", 0, 19);
+            WriteAt("          Version ", 0, 20);
+            Version = int.Parse(Console.ReadLine());
 
+            if (Version == 1) //Kollar så att gamemode inte är något annat än 1 eller 2
+            {
+                Console.Clear();
+                WriteAt("          Version 1", 0, 10);
+                Thread.Sleep(1000);
+            }
+            else if (Version == 2)
+            {
+                Console.Clear();
+                WriteAt("          Version 2", 0, 10);
+                Thread.Sleep(1000);
+            }
+            else
+            {
+                goto Start;
+            }
 
             while (gameOver == false) 
             {
                 Console.Clear();
-                
-                if (cycle == 2) //Byter till nästa variabel i 'obstacles', 'obstaclesX' och 'obstaclesY' varannan cykel
-                {
-                    devi += 1;
-                    cycle = 0;
-                }
-                cycle += 1; //Lägger till '+1' för varje cykel
 
-                if (devi >= 6) //Går tillbaka till första variabeln i 'obstacles', 'obstaclesX' och 'obstaclesY'
+                if (Version == 1) //Väljer rätt kod att utföra för vald version
                 {
-                    devi = 0;
+                    if (cycle == 2) //Byter till nästa variabel i 'obstacles', 'obstaclesX' och 'obstaclesY' varannan cykel
+                    {
+                        devi += 1;
+                        cycle = 0;
+                    }
+                    cycle += 1; //Lägger till '+1' för varje cykel
+                    if (devi >= 6) //Går tillbaka till första variabeln i 'obstacles', 'obstaclesX' och 'obstaclesY'
+                    {
+                        devi = 0;
+                    }
+                    if (obstaclesY[devi] >= 40) //Spawnar ett hinder på en slumpmässig plats på toppen av spelplanen
+                    {
+                        obstaclesX[devi] = rnd.Next(1, 4);
+                        obstaclesY[devi] = 0;
+                    }
                 }
-                if (obstaclesY[devi] >= 40) //Spawnar ett hinder på en slumpmässig plats på toppen av spelplanen
+                else if (Version == 2) //Väljer rätt kod att utföra för vald version
                 {
-                    obstaclesX[devi] = rnd.Next(1, 4);
-                    obstaclesY[devi] = 0;
+                    if (cycle == 3) //Byter till nästa variabel i 'obstacleSpawner', 'obstaclesX' och 'obstaclesY' var tredje cykel
+                    {
+                        devi += 1;
+                        cycle = 0;
+                    }
+                    cycle += 1; //Lägger till '+1' för varje cykel
+                    if (devi >= 6) //Går tillbaka till första variabeln i 'obstacleSpawner', 'obstaclesX' och 'obstaclesY'
+                    {
+                        devi = 0;
+                    }
+                    if (obstaclesY[devi] >= 40) //Spawnar ett hinder på en slumpmässig plats på toppen av spelplanen
+                    {
+                        obstaclesX[devi] = rnd.Next(1, 7);
+                        obstaclesY[devi] = 0;
+                    }
                 }
 
 
@@ -97,16 +144,54 @@ namespace DrivingSimQuestionmark
                     {
                         road = 1;
                     }
-                    
-                    for (int a = 0; a < 5; a++) //Flyttar hinderna ner en rad
+
+                    for (int n = 0; n < 6; n++) //Flyttar hinderna ner en rad
                     {
-                        obstaclesY[a] += 1;
+                        obstaclesY[n] += 1;
                     }
 
-                    //Skriver ut alla hinder
-                    Obstacle[] obstacles = { new Obstacle(obstaclesX[0], obstaclesY[0]), new Obstacle(obstaclesX[1], obstaclesY[1]),
-                        new Obstacle(obstaclesX[2], obstaclesY[2]), new Obstacle(obstaclesX[3], obstaclesY[3]),
-                        new Obstacle(obstaclesX[4], obstaclesY[4]), new Obstacle(obstaclesX[5], obstaclesY[5]) };
+                    if (Version == 1) //Väljer rätt kod att utföra för vald version
+                    {
+                        //Skriver ut alla hinder
+                        Obstacle[] obstacles = { new Obstacle(obstaclesX[0], obstaclesY[0]), new Obstacle(obstaclesX[1], obstaclesY[1]),
+                            new Obstacle(obstaclesX[2], obstaclesY[2]), new Obstacle(obstaclesX[3], obstaclesY[3]),
+                            new Obstacle(obstaclesX[4], obstaclesY[4]), new Obstacle(obstaclesX[5], obstaclesY[5]) };
+
+                        for (int n = 0; n < 5; n++) //Kollar ifall något av hinderna är på samma plats som spelaren
+                        {
+                            if (obstaclesX[n] == playerX && obstaclesY[n] == 36)
+                            {
+                                gameOver = true;
+                            }
+                        }
+                    }
+                    else if (Version == 2) //Väljer rätt kod att utföra för vald version
+                    {
+                        //Skriver ut alla hinder
+                        ObstacleSpawner[] obstacleSpawners = { new ObstacleSpawner(obstaclesX[0], obstaclesY[0]), new ObstacleSpawner(obstaclesX[1], obstaclesY[1]),
+                            new ObstacleSpawner(obstaclesX[2], obstaclesY[2]), new ObstacleSpawner(obstaclesX[3], obstaclesY[3]),
+                            new ObstacleSpawner(obstaclesX[4], obstaclesY[4]), new ObstacleSpawner(obstaclesX[5], obstaclesY[5]) };
+
+                        for (int n = 0; n < 5; n++) //Kollar ifall något av hinderna är på samma plats som spelaren
+                        {
+                            if (obstacleSpawners[n].prefab == playerX && obstaclesY[n] == 36)
+                            {
+                                gameOver = true;
+                            }
+                            if (obstacleSpawners[n].prefab == 4 && (playerX == 1 || playerX == 2) && obstaclesY[n] == 36)
+                            {
+                                gameOver = true;
+                            }
+                            if (obstacleSpawners[n].prefab == 5 && (playerX == 2 || playerX == 3) && obstaclesY[n] == 36)
+                            {
+                                gameOver = true;
+                            }
+                            if (obstacleSpawners[n].prefab == 6 && (playerX == 1 || playerX == 3) && obstaclesY[n] == 36)
+                            {
+                                gameOver = true;
+                            }
+                        }
+                    }
 
                     WriteAt("|", 0, 0); //Skriver en sak högst upp i konsollen så att rätt saker alltid visas
                     
@@ -115,48 +200,48 @@ namespace DrivingSimQuestionmark
                     Thread.Sleep(100);
                 }
 
-
-                for (int i = 0; i < 5; i++) //Kollar ifall något av hinderna är på samma plats som spelaren
+                if (gameOver == false)
                 {
-                    if (obstaclesX[i] == playerX && obstaclesY[i] == 36)
+                Input:
+                    playerInput = Console.ReadKey(true); //Läser spelarens input
+
+                    if (playerInput.Key == ConsoleKey.A && playerX > 1) //Flyttar spelaren åt vänster
                     {
-                        gameOver = true;
+                        playerX -= 1;
                     }
-                }
-
-
-            Input:
-                playerInput = Console.ReadKey(true); //Läser spelarens input
-
-                if (playerInput.Key == ConsoleKey.A && playerX > 1) //Flyttar spelaren åt vänster
-                {
-                    playerX -= 1;
-                }
-                else if (playerInput.Key == ConsoleKey.D && playerX < 3) //Flyttar spelaren åt höger
-                {
-                    playerX += 1;
-                }
-                else if (playerInput.Key == ConsoleKey.W) //Flyttar inte spelaren och fortsätter spelet
-                {
-                    continue;
-                }
-                else if (playerInput.Key == ConsoleKey.Escape) //Går till 'Start:' som återställer spelet och tar spelaren till huvudmenyn
-                {
-                    Console.Clear();
-                    goto Start;
-                }
-                else //Går till 'Input:' som ser till att alla andra knappar på tangentbordet inte fortsätter spelet
-                {
-                    goto Input;
+                    else if (playerInput.Key == ConsoleKey.D && playerX < 3) //Flyttar spelaren åt höger
+                    {
+                        playerX += 1;
+                    }
+                    else if (playerInput.Key == ConsoleKey.W) //Flyttar inte spelaren och fortsätter spelet
+                    {
+                        continue;
+                    }
+                    else if (playerInput.Key == ConsoleKey.Escape) //Går till 'Start:' som återställer spelet och tar spelaren till huvudmenyn
+                    {
+                        Console.Clear();
+                        goto Start;
+                    }
+                    else //Går till 'Input:' som ser till att alla andra knappar på tangentbordet inte fortsätter spelet
+                    {
+                        goto Input;
+                    }
                 }
             }
 
+            
+        End:
             Console.Clear();
             WriteAt("  ============================  ", 0, 1); //Game over meny som också är slutet på spelet
             WriteAt("         --GAME OVER--          ", 0, 2);
             WriteAt("   --Press ENTER to continue--  ", 0, 3);
             WriteAt("  ============================  ", 0, 4);
-            Console.ReadLine();
+            playerInput = Console.ReadKey(true); //Läser spelarens input
+
+            if (playerInput.Key != ConsoleKey.Enter) //Avslutar spelet bara ifall spelaren trycker på Enter
+            {
+                goto End;
+            }
         }
     }
 }
