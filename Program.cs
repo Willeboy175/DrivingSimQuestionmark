@@ -61,20 +61,15 @@ namespace DrivingSimQuestionmark
             WriteAt("   --Press W to move nothing--  ", 0, 4);
             WriteAt("   --Press ESC to main menu--   ", 0, 5);
             WriteAt("================================", 0, 6);
-            WriteAt("                                ", 0, 7);
-            WriteAt("                                ", 0, 8);
             WriteAt("================================", 0, 9);
             WriteAt("--Write 1 to select version 1-- ", 0, 10);
             WriteAt("--Write 2 to select Version 2-- ", 0, 11);
             WriteAt("================================", 0, 12);
-            WriteAt("                                ", 0, 13);
-            WriteAt("                                ", 0, 14);
             WriteAt("================================", 0, 15);
             WriteAt("    --To start, press ENTER--   ", 0, 16);
             WriteAt("================================", 0, 17);
-            WriteAt("                                ", 0, 18);
-            WriteAt("                                ", 0, 19);
             WriteAt("          Version ", 0, 20);
+
             Version = int.Parse(Console.ReadLine());
 
             if (Version == 1) //Kollar så att gamemode inte är något annat än 1 eller 2
@@ -242,8 +237,6 @@ namespace DrivingSimQuestionmark
             WriteAt("         --GAME OVER--          ", 0, 2);
             WriteAt("    --Your score is: " +score + "--        ", 0, 3);
             WriteAt("================================", 0, 4);
-            WriteAt("                                ", 0, 5);
-            WriteAt("                                ", 0, 6);
             WriteAt("================================", 0, 7);
             WriteAt("   --Press ENTER to continue--  ", 0, 8);
             WriteAt("================================", 0, 9);
